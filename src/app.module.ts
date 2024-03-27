@@ -15,5 +15,6 @@ import { ReviewManagementModule } from './review-management/review-management.mo
   ],
   controllers: [AppController],
   providers: [AppService],
+  exports: [AppService],
 })
 export class AppModule {}

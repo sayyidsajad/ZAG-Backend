@@ -1,15 +1,26 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { UpdateListingDto } from './dto/update-list.dto';
 import { ListingDto } from './dto/create-list.dto';
 import { Response } from 'express';
-import { AppService } from 'src/app.service';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class ListingManagementService {
-  constructor(private appService: AppService) {}
+  private arr: any[];
+  private idCount: number;
+  constructor(
+    @Inject('LISTING_MODEL')
+    private _listingModel: Model<any>,
+  ) {
+    this.arr = [];
+    this.idCount = 0;
+  }
   async viewLists(res: Response) {
     try {
-      return res.status(HttpStatus.OK).json({ data: this.appService.arr });
+      const findLists = await this._listingModel.find();
+      return res.status(HttpStatus.OK).json({
+        data: findLists.length > 0 ? findLists : 'No Lists Available',
+      });
     } catch (error) {
       if (error instanceof HttpException) {
         return res.status(error.getStatus()).json({
@@ -24,10 +35,10 @@ export class ListingManagementService {
   }
   async createLists(listingDto: ListingDto, res: Response) {
     try {
-      this.appService.arr.push({
-        id: this.appService.idCount++,
+      const createList = new this._listingModel({
         ...listingDto,
       });
+      await createList.save();
       return res
         .status(HttpStatus.CREATED)
         .json({ message: 'Successfully Created' });
@@ -45,14 +56,10 @@ export class ListingManagementService {
   }
   async updateLists(updatingDto: UpdateListingDto, id: number, res: Response) {
     try {
-      const find = this.appService.arr.find((item) => item.id == id);
-      if (find) {
-        Object.keys(updatingDto).forEach((key) => {
-          if (updatingDto[key] !== undefined) {
-            find[key] = updatingDto[key];
-          }
-        });
-      }
+      await this._listingModel.updateOne(
+        { _id: id },
+        { $set: { ...updatingDto } },
+      );
       return res
         .status(HttpStatus.CREATED)
         .json({ message: 'Successfully Updated' });
@@ -70,11 +77,9 @@ export class ListingManagementService {
   }
   async deleteLists(id: string, res: Response) {
     try {
-      const find = this.appService.arr.find((item) => item.id == id);
+      const find = this.arr.find((item) => item.id == id);
       if (find) {
-        this.appService.arr = this.appService.arr.filter(
-          (item) => item.id != id,
-        );
+        this.arr = this.arr.filter((item) => item.id != id);
       }
       return res
         .status(HttpStatus.CREATED)

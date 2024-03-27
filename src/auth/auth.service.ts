@@ -18,7 +18,7 @@ export class AuthService {
       throw new UnauthorizedException();
     }
     const payload = {
-      sub: user.userId,
+      sub: user._id,
       username: user.username,
       roles: user.role,
     }; // Keeping this specific payload to have the metadata of user in the Req for further routes.
