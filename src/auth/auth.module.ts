@@ -14,11 +14,12 @@ import { RolesGuard } from 'src/roles/roles.guards';
     JwtModule.register({
       global: true,
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '1h' },
+      signOptions: { expiresIn: '1h' }, // 1 hour specified for the expiration of JWT.
     }),
   ],
   providers: [
     AuthService,
+    // For Global Access
     {
       provide: APP_GUARD,
       useClass: AuthGuard,

@@ -1,8 +1,9 @@
 import { SetMetadata } from '@nestjs/common';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 export const jwtConstants = {
-  secret:
-    'DO NOT USE THIS VALUE. INSTEAD, CREATE A COMPLEX SECRET AND KEEP IT SAFE OUTSIDE OF THE SOURCE CODE.',
+  secret: process.env.JWT_SECRET, // JWT Secret from .env (MUST).
 };
 export const IS_PUBLIC_KEY = 'isPublic';
 export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);

@@ -6,7 +6,7 @@ import { Public } from './constants';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @Public()
+  @Public() // Not role specific, anyone can login.
   @HttpCode(HttpStatus.OK)
   @Post('login')
   signIn(@Body() signInDto: Record<string, any>) {

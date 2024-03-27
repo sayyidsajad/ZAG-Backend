@@ -21,7 +21,7 @@ export class AuthService {
       sub: user.userId,
       username: user.username,
       roles: user.role,
-    };
+    }; // Keeping this specific payload to have the metadata of user in the Req for further routes.
     return {
       access_token: await this.jwtService.signAsync(payload),
     };

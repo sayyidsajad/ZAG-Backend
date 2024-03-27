@@ -12,9 +12,11 @@ export class RolesGuard implements CanActivate {
       context.getHandler(),
       context.getClass(),
     ]);
+    // For the routes that is not specified for the roles.
     if (!requiredRoles) {
       return true;
     }
+    // Checking whether the assigned data of User's role is their in the Request.
     const { user } = context.switchToHttp().getRequest();
     return requiredRoles.some((role) => user.roles?.includes(role));
   }
