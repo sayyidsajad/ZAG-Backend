@@ -4,7 +4,7 @@ import { DatabaseModule } from 'src/config/database/database.module';
 import { usersProviders } from './users.providers';
 
 @Module({
-  imports:[DatabaseModule],
+  imports: [DatabaseModule],
   providers: [UsersService, ...usersProviders],
   exports: [UsersService],
 })

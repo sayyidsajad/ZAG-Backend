@@ -6,15 +6,10 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class ListingManagementService {
-  private arr: any[];
-  private idCount: number;
   constructor(
     @Inject('LISTING_MODEL')
     private _listingModel: Model<any>,
-  ) {
-    this.arr = [];
-    this.idCount = 0;
-  }
+  ) {}
   async viewLists(res: Response) {
     try {
       const findLists = await this._listingModel.find();
@@ -77,10 +72,7 @@ export class ListingManagementService {
   }
   async deleteLists(id: string, res: Response) {
     try {
-      const find = this.arr.find((item) => item.id == id);
-      if (find) {
-        this.arr = this.arr.filter((item) => item.id != id);
-      }
+      await this._listingModel.deleteOne({ _id: id });
       return res
         .status(HttpStatus.CREATED)
         .json({ message: 'Successfully Deleted' });

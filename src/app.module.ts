@@ -5,6 +5,8 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ListingManagementModule } from './listing-management/listing-management.module';
 import { ReviewManagementModule } from './review-management/review-management.module';
+import { HttpExceptionFilter } from './exceptions/http-exception.filter';
+import { APP_FILTER } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -14,7 +16,13 @@ import { ReviewManagementModule } from './review-management/review-management.mo
     ReviewManagementModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_FILTER,
+      useClass: HttpExceptionFilter,
+    },
+  ],
   exports: [AppService],
 })
 export class AppModule {}

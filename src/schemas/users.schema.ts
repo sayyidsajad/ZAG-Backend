@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const UsersSchema = new mongoose.Schema(
+export const UsersSchema = new mongoose.Schema( // Not necessary, due to no signup (just for a reference schema is made).
   {
     username: { type: String, required: true },
     password: { type: String, required: true },

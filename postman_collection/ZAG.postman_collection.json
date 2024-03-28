@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "d6ca7316-07c6-45ce-848e-76974f5a37a4",
+		"name": "ZAG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25308248"
+	},
+	"item": [
+		{
+			"name": "listing-management",
+			"item": [
+				{
+					"name": "http://localhost:3000/listing-management/viewLists",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjA0YTE0YzU2NzE3NTc0MTRiYWEyMTgiLCJ1c2VybmFtZSI6ImFudG8iLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MTE1OTAzMjMsImV4cCI6MTcxMTU5MzkyM30.SdPLHgLRqTTrV1fR21DKfaj3KnNSosxX7vR-TiOLOs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/listing-management/viewLists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"listing-management",
+								"viewLists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/listing-management/createLists",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjA0YTE0YzU2NzE3NTc0MTRiYWEyMTgiLCJ1c2VybmFtZSI6ImFudG8iLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MTE1OTAzMjMsImV4cCI6MTcxMTU5MzkyM30.SdPLHgLRqTTrV1fR21DKfaj3KnNSosxX7vR-TiOLOs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listingName\":\"Malabar\",\r\n    \"businessPhone\":\"1234567890\",\r\n    \"city\":\"Malappuram\",\r\n    \"address\":\"Kerala,India\",\r\n    \"images\":[\r\n        \"https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_640.jpg\",\r\n        \"https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_640.jpg\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/listing-management/createLists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"listing-management",
+								"createLists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/listing-management/updateLists?id=1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjA0YTE0YzU2NzE3NTc0MTRiYWEyMTgiLCJ1c2VybmFtZSI6ImFudG8iLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MTE1OTAzMjMsImV4cCI6MTcxMTU5MzkyM30.SdPLHgLRqTTrV1fR21DKfaj3KnNSosxX7vR-TiOLOs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listingName\":\"Laren Wolf\",\r\n    \"address\":\"Kerala,India\",\r\n    \"images\":[\r\n        \"https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_640.jpg\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/listing-management/updateLists?id=6604cc14cc0b166fd7cb6ba9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"listing-management",
+								"updateLists"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6604cc14cc0b166fd7cb6ba9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/listing-management/deleteLists?id=1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjA0YTE0YzU2NzE3NTc0MTRiYWEyMTgiLCJ1c2VybmFtZSI6ImFudG8iLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MTE1OTAzMjMsImV4cCI6MTcxMTU5MzkyM30.SdPLHgLRqTTrV1fR21DKfaj3KnNSosxX7vR-TiOLOs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/listing-management/deleteLists?id=6604cc14cc0b166fd7cb6ba9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"listing-management",
+								"deleteLists"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6604cc14cc0b166fd7cb6ba9"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Listings of the business."
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "http://localhost:3000/auth/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"anto\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "User sign-in and authentication with JWT."
+		},
+		{
+			"name": "review-management",
+			"item": [
+				{
+					"name": "http://localhost:3000/review-management/viewReviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjA0YTE0YzU2NzE3NTc0MTRiYWEyMTgiLCJ1c2VybmFtZSI6ImFudG8iLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MTE1OTAzMjMsImV4cCI6MTcxMTU5MzkyM30.SdPLHgLRqTTrV1fR21DKfaj3KnNSosxX7vR-TiOLOs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/review-management/viewReviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"review-management",
+								"viewReviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/review-management/createReviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjA0YTE0YzU2NzE3NTc0MTRiYWEyMTgiLCJ1c2VybmFtZSI6ImFudG8iLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MTE1OTAzMjMsImV4cCI6MTcxMTU5MzkyM30.SdPLHgLRqTTrV1fR21DKfaj3KnNSosxX7vR-TiOLOs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"review\":\"Isn't it that hard\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/review-management/createReviews?id=6604cc14cc0b166fd7cb6ba9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"review-management",
+								"createReviews"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6604cc14cc0b166fd7cb6ba9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/review-management/updateReviews?id=1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjA0YTE0YzU2NzE3NTc0MTRiYWEyMTgiLCJ1c2VybmFtZSI6ImFudG8iLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MTE1OTAzMjMsImV4cCI6MTcxMTU5MzkyM30.SdPLHgLRqTTrV1fR21DKfaj3KnNSosxX7vR-TiOLOs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"review\":\"Yes i really liked it !!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/review-management/updateReviews?id=6604cd4ecc0b166fd7cb6bb0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"review-management",
+								"updateReviews"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6604cd4ecc0b166fd7cb6bb0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/review-management/deleteReviews?id=1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjA0YTE0YzU2NzE3NTc0MTRiYWEyMTgiLCJ1c2VybmFtZSI6ImFudG8iLCJyb2xlcyI6WyJhZG1pbiJdLCJpYXQiOjE3MTE1OTEyMzksImV4cCI6MTcxMTU5NDgzOX0.faVYF7zw2nXLPweiLKDI9X0Pn73Q-UGGmoZ5k60ma_E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/review-management/deleteReviews?id=6604cd4ecc0b166fd7cb6bb0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"review-management",
+								"deleteReviews"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6604cd4ecc0b166fd7cb6bb0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/review-management/responseReview?id=6604cd4ecc0b166fd7cb6bb0",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NjA0YTFiZjU2NzE3NTc0MTRiYWEyMTkiLCJ1c2VybmFtZSI6ImpvaG4iLCJyb2xlcyI6WyJidXNpbmVzc293bmVyIl0sImlhdCI6MTcxMTU5MTAyOCwiZXhwIjoxNzExNTk0NjI4fQ.5BPPyJOOeqTwmjtRSY0kWp_JY2kHxnEsVwSPuBj0d2w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reply\":\"That might be a correct statement.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/review-management/responseReview?id=6604cd4ecc0b166fd7cb6bb0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"review-management",
+								"responseReview"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6604cd4ecc0b166fd7cb6bb0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Reviews of the business."
+		}
+	]
+}

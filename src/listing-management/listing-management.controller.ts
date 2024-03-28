@@ -21,8 +21,8 @@ import { Response } from 'express';
 export class ListingManagementController {
   constructor(private listingManagement: ListingManagementService) {}
 
-// Each route's name gives an idea of what that specific route is about (Maintained Readability).
-@Get('viewLists')
+  // Each route's name gives an idea of what that specific route is about (Maintained Readability).
+  @Get('viewLists')
   viewLists(@Res() res: Response) {
     return this.listingManagement.viewLists(res);
   }
@@ -33,7 +33,7 @@ export class ListingManagementController {
     return this.listingManagement.createLists(listingDto, res);
   }
 
-  @Roles(Role.BusinessOwner, Role.Admin)
+  @Roles(Role.BusinessOwner, Role.Admin) // Updating the particular list based on unique ID.
   @Put('updateLists')
   updateLists(
     @Body() updatingDto: UpdateListingDto,
@@ -43,7 +43,7 @@ export class ListingManagementController {
     return this.listingManagement.updateLists(updatingDto, id, res);
   }
 
-  @Roles(Role.Admin)
+  @Roles(Role.Admin) // Deleting the particular list only.
   @Delete('deleteLists')
   deleteLists(@Query('id') id: string, @Res() res: Response) {
     return this.listingManagement.deleteLists(id, res);

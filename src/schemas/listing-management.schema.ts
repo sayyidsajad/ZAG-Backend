@@ -13,7 +13,7 @@ export const ListingSchema = new mongoose.Schema(
     ],
     reviews: [
       {
-        user: { type: mongoose.Schema.ObjectId, ref: 'Users' },
+        user: { type: mongoose.Schema.ObjectId, ref: 'Users' }, // Each Review will have a reply and that will be only given by business-owner
         review: { type: String },
         responses: [
           {
